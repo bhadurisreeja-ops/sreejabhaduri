@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sreeja Bhaduri — GIS &amp; Remote Sensing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#182A2E;
+    --paper:#FAF8F3;
+    --paper-deep:#F1ECE2;
+    --pine:#2F5D50;
+    --sienna:#A85D2C;
+    --line:#DCD4C4;
+    --muted:#5B6664;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--pine);}
+  a:focus-visible, button:focus-visible{outline:2px solid var(--sienna); outline-offset:3px;}
+  h1,h2,h3{font-family:'Fraunces',Georgia,serif; font-weight:600; margin:0;}
+  .wrap{max-width:840px; margin:0 auto; padding:0 28px;}
+
+  /* Header / hero */
+  header.hero{
+    padding:64px 0 40px;
+    border-bottom:1px solid var(--line);
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.6fr 1fr;
+    gap:24px;
+    align-items:end;
+  }
+  .hero h1{font-size:2.6rem; letter-spacing:-0.01em; line-height:1.05;}
+  .hero .role{font-size:1.05rem; color:var(--pine); margin-top:10px; font-weight:500;}
+  .hero-contact{
+    font-size:0.92rem;
+    color:var(--muted);
+    text-align:left;
+  }
+  .hero-contact div{margin-bottom:4px;}
+  .stat-strip{
+    margin-top:28px;
+    padding-top:20px;
+    border-top:1px solid var(--line);
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px 28px;
+    font-size:0.92rem;
+    color:var(--muted);
+  }
+  .stat-strip span{margin-right:28px; display:inline-block;}
+  .stat-strip strong{color:var(--ink); font-weight:600;}
+
+  /* Nav */
+  nav.jump{
+    padding:14px 0;
+    border-bottom:1px solid var(--line);
+    font-size:0.9rem;
+  }
+  nav.jump .wrap{display:flex; gap:24px; flex-wrap:wrap;}
+  nav.jump a{color:var(--muted); text-decoration:none; margin-right:24px;}
+  nav.jump a:last-child{margin-right:0;}
+  nav.jump a:hover{color:var(--pine);}
+
+  section{padding:52px 0; border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+  section h2{font-size:1.5rem; margin-bottom:20px;}
+  section > .wrap > p.lede{color:var(--muted); max-width:60ch;}
+
+  /* Summary */
+  #summary p{max-width:66ch; font-size:1.02rem;}
+
+  /* Skills */
+  .skill-block{margin-bottom:22px;}
+  .skill-block h3{font-size:0.98rem; font-weight:600; margin-bottom:8px; color:var(--pine);}
+  .skill-block ul{margin:0; padding:0; list-style:none; display:flex; flex-wrap:wrap; gap:8px 10px;}
+  .skill-block li{
+    font-size:0.88rem;
+    padding:5px 12px;
+    background:var(--paper-deep);
+    border-radius:3px;
+    color:var(--ink);
+  }
+
+  /* Case studies */
+  .case{
+    padding:28px 0;
+    border-top:1px solid var(--line);
+    display:grid;
+    grid-template-columns:44px 1fr;
+    gap:20px;
+  }
+  .case:first-of-type{border-top:none; padding-top:6px;}
+  .case-num{
+    font-family:'Fraunces',serif;
+    font-size:1.4rem;
+    color:var(--line);
+    font-weight:500;
+    line-height:1.4;
+  }
+  .case h3{font-size:1.2rem; margin-bottom:4px;}
+  .case .tools{
+    font-size:0.82rem;
+    color:var(--sienna);
+    margin-bottom:12px;
+    font-weight:500;
+  }
+  .case ul{margin:0; padding-left:18px;}
+  .case li{margin-bottom:8px; font-size:0.96rem;}
+  .case li b{color:var(--pine); font-weight:600;}
+  .case .meta{
+    margin-top:12px;
+    font-size:0.85rem;
+    color:var(--muted);
+    font-style:italic;
+  }
+
+  /* Education */
+  .edu-row{display:flex; justify-content:space-between; gap:20px; padding:14px 0; border-top:1px solid var(--line); flex-wrap:wrap;}
+  .edu-row:first-of-type{border-top:none;}
+  .edu-row .what b{display:block; font-size:1rem;}
+  .edu-row .what span{font-size:0.88rem; color:var(--muted);}
+  .edu-row .when{font-size:0.88rem; color:var(--muted); white-space:nowrap;}
+
+  /* Footer */
+  footer{padding:40px 0 60px; text-align:left;}
+  footer p{color:var(--muted); font-size:0.9rem;}
+  footer a{margin-right:18px; font-weight:500; text-decoration:none;}
+  footer a:hover{text-decoration:underline;}
+
+  @media (max-width:640px){
+    .hero-grid{grid-template-columns:1fr;}
+    .hero-contact{text-align:left; margin-top:8px;}
+    .hero h1{font-size:2.1rem;}
+    .case{grid-template-columns:32px 1fr; gap:12px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <h1>Sreeja Bhaduri</h1>
+        <div class="role">GIS &amp; Remote Sensing — M.Sc. Geoinformatics, Pune</div>
+      </div>
+      <div class="hero-contact">
+        <div>bhadurisreeja@gmail.com</div>
+        <div>+91 98317 57662</div>
+        <div>Pune, Maharashtra</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<nav class="jump">
+  <div class="wrap">
+    <a href="#summary">Summary</a>
+    <a href="projects.html">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#education">Education</a>
+  </div>
+</nav>
+
+<section id="summary">
+  <div class="wrap">
+    <p>Postgraduate student specializing in GIS &amp; Remote Sensing, with hands-on project experience in groundwater potential mapping, urban environmental analysis, and a GeoAI-based business location-intelligence system. Comfortable across ArcGIS Pro, QGIS, Google Earth Engine, and Python/R for spatial data processing, with a growing focus on geospatial automation using ArcPy and geospatial Python libraries.</p>
+    <p><a href="projects.html">View my project portfolio →</a></p>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <h2>Skills</h2>
+
+    <div class="skill-block">
+      <h3>GIS &amp; spatial analysis</h3>
+      <ul>
+        <li>ArcGIS Pro</li><li>QGIS</li><li>Erdas Imagine</li><li>Google Earth Engine</li>
+        <li>LiDAR processing &amp; 3D modeling</li><li>GNSS data processing</li>
+      </ul>
+    </div>
+
+    <div class="skill-block">
+      <h3>Programming &amp; automation</h3>
+      <ul>
+        <li>Python</li><li>GeoPandas</li><li>Shapely</li><li>Rasterio</li><li>Fiona</li>
+        <li>GDAL/OGR</li><li>PyProj</li><li>scikit-learn</li><li>ArcPy</li><li>PostgreSQL/PostGIS</li>
+      </ul>
+    </div>
+
+    <div class="skill-block">
+      <h3>Other</h3>
+      <ul>
+        <li>HTML</li><li>Java</li><li>Technical communication</li><li>Team collaboration</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <h2>Education &amp; certifications</h2>
+
+    <div class="edu-row">
+      <div class="what"><b>M.Sc. Geoinformatics (Pursuing)</b><span>Symbiosis Institute of Geoinformatics (SIG), Pune · SGPA 5.67</span></div>
+      <div class="when">2025 – 2027</div>
+    </div>
+    <div class="edu-row">
+      <div class="what"><b>B.A. (Honors) Geography</b><span>Shaheed Bhagat Singh College (Evening), University of Delhi · CGPA 7.667</span></div>
+      <div class="when">2022 – 2025</div>
+    </div>
+    <div class="edu-row">
+      <div class="what"><b>Programming for GIS</b><span>Certificate, Udemy</span></div>
+      <div class="when">2026</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>
+      <a href="mailto:bhadurisreeja@gmail.com">Email</a>
+      <a href="https://www.linkedin.com/in/sreejabhaduri" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="#" target="_blank" rel="noopener">GitHub</a>
+    </p>
+    <p>Pune, Maharashtra</p>
+  </div>
+</footer>
+
+</body>
+</html>
